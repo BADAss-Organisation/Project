@@ -1,0 +1,11 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Wanna_Buyl.Models.Domain
+{
+    public class Category
+    {
+        [Key]
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+}
