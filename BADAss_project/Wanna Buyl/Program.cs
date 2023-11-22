@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Wanna_Buyl.Data;
+
 namespace Wanna_Buyl
 {
     public class Program
@@ -8,6 +11,8 @@ namespace Wanna_Buyl
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<WannaBuyContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("WannaBuy")));
 
             var app = builder.Build();
 
