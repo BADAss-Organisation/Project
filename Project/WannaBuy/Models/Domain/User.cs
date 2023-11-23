@@ -1,21 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
-namespace Wanna_Buyl.Models.Domain
+namespace WannaBuy.Models.Domain
 {
-    public class User
+    public class User : IdentityUser<int>
     {
-        [Key]
-        public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
         [Required]
-        public string Email { get; set; }
-        [Required]
         public string Location { get; set; }
-        [Required]
-        public string Password { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
         [Required]

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Wanna_Buyl.Models.Domain
+namespace WannaBuy.Models.Domain
 {
     public class Application
     {
