@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Julen\\Desktop\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj": {}
+    "C:\\Users\\Admin_305\\Desktop\\boris armani\\project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Julen\\Desktop\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj": {
+    "C:\\Users\\Admin_305\\Desktop\\boris armani\\project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Julen\\Desktop\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
+        "projectUniqueName": "C:\\Users\\Admin_305\\Desktop\\boris armani\\project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
         "projectName": "WannaBuy",
-        "projectPath": "C:\\Users\\Julen\\Desktop\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
-        "packagesPath": "C:\\Users\\Julen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Julen\\Desktop\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\obj\\",
+        "projectPath": "C:\\Users\\Admin_305\\Desktop\\boris armani\\project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
+        "packagesPath": "C:\\Users\\Admin_305\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin_305\\Desktop\\boris armani\\project\\Project\\ProjectSE\\WannaBuy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Julen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin_305\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -71,7 +71,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -83,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
