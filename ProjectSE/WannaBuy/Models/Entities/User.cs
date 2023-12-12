@@ -12,7 +12,8 @@ namespace WannaBuy.Models.Entities
         public string Password { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public ICollection<Application> Applications { get; set; } = new List<Application>();
+        public string Location { get; set; }
+        public ICollection<Product> Products { get; set; } = new List<Product>();
         public ICollection<Order> Orders { get; set; } = new List<Order>();
     }
 }
