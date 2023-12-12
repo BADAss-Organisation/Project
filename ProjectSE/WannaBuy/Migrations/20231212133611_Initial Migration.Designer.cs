@@ -9,10 +9,10 @@ using WannaBuy.Data;
 
 #nullable disable
 
-namespace WannaBuy.Data.Migrations
+namespace WannaBuy.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231129182235_Initial Migration")]
+    [Migration("20231212133611_Initial Migration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -226,44 +226,6 @@ namespace WannaBuy.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("WannaBuy.Models.Entities.Application", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Filter_id")
-                        .HasColumnType("int");
-
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("User_Id")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Filter_id");
-
-                    b.HasIndex("User_Id");
-
-                    b.ToTable("Applications");
-                });
-
             modelBuilder.Entity("WannaBuy.Models.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -276,48 +238,13 @@ namespace WannaBuy.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PriceRange")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("WannaBuy.Models.Entities.Comment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Application_id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CommentText")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Application_id");
-
-                    b.ToTable("Comments");
-                });
-
-            modelBuilder.Entity("WannaBuy.Models.Entities.Filter", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Filters");
                 });
 
             modelBuilder.Entity("WannaBuy.Models.Entities.Order", b =>
@@ -331,6 +258,9 @@ namespace WannaBuy.Data.Migrations
                     b.Property<DateTime>("DateOfOrder")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("DeliveryDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("DeliveryLocation")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -338,12 +268,12 @@ namespace WannaBuy.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("User_Id")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("User_Id");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -356,11 +286,19 @@ namespace WannaBuy.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("Application_id")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -369,12 +307,14 @@ namespace WannaBuy.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("Application_id")
-                        .IsUnique();
-
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Products");
                 });
@@ -396,6 +336,10 @@ namespace WannaBuy.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -463,41 +407,11 @@ namespace WannaBuy.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WannaBuy.Models.Entities.Application", b =>
-                {
-                    b.HasOne("WannaBuy.Models.Entities.Filter", "Filter")
-                        .WithMany("Applications")
-                        .HasForeignKey("Filter_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WannaBuy.Models.Entities.User", "User")
-                        .WithMany("Applications")
-                        .HasForeignKey("User_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Filter");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("WannaBuy.Models.Entities.Comment", b =>
-                {
-                    b.HasOne("WannaBuy.Models.Entities.Application", "Application")
-                        .WithMany("Comments")
-                        .HasForeignKey("Application_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Application");
-                });
-
             modelBuilder.Entity("WannaBuy.Models.Entities.Order", b =>
                 {
                     b.HasOne("WannaBuy.Models.Entities.User", "User")
                         .WithMany("Orders")
-                        .HasForeignKey("User_Id")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -506,29 +420,21 @@ namespace WannaBuy.Data.Migrations
 
             modelBuilder.Entity("WannaBuy.Models.Entities.Product", b =>
                 {
-                    b.HasOne("WannaBuy.Models.Entities.Application", "Application")
-                        .WithOne("Product")
-                        .HasForeignKey("WannaBuy.Models.Entities.Product", "Application_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("WannaBuy.Models.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Application");
+                    b.HasOne("WannaBuy.Models.Entities.User", "User")
+                        .WithMany("Products")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
-                });
 
-            modelBuilder.Entity("WannaBuy.Models.Entities.Application", b =>
-                {
-                    b.Navigation("Comments");
-
-                    b.Navigation("Product")
-                        .IsRequired();
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("WannaBuy.Models.Entities.Category", b =>
@@ -536,16 +442,11 @@ namespace WannaBuy.Data.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("WannaBuy.Models.Entities.Filter", b =>
-                {
-                    b.Navigation("Applications");
-                });
-
             modelBuilder.Entity("WannaBuy.Models.Entities.User", b =>
                 {
-                    b.Navigation("Applications");
-
                     b.Navigation("Orders");
+
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
