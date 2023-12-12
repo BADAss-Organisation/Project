@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Julen\\Desktop\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj": {}
+    "C:\\Users\\Julen\\Desktop\\Софтурно инженерство\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Julen\\Desktop\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj": {
+    "C:\\Users\\Julen\\Desktop\\Софтурно инженерство\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Julen\\Desktop\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
+        "projectUniqueName": "C:\\Users\\Julen\\Desktop\\Софтурно инженерство\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
         "projectName": "WannaBuy",
-        "projectPath": "C:\\Users\\Julen\\Desktop\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
+        "projectPath": "C:\\Users\\Julen\\Desktop\\Софтурно инженерство\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
         "packagesPath": "C:\\Users\\Julen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Julen\\Desktop\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\obj\\",
+        "outputPath": "C:\\Users\\Julen\\Desktop\\Софтурно инженерство\\Project\\Project\\Project\\ProjectSE\\WannaBuy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
