@@ -12,8 +12,8 @@ using WannaBuy.Data;
 namespace WannaBuy.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231212133611_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20231214064426_InitialMigr")]
+    partial class InitialMigr
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
