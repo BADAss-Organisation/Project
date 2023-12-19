@@ -5,79 +5,51 @@ namespace WannaBuy.Controllers
 {
     public class CategoriesController : Controller
     {
-        // GET: CategoriesController
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-
-        // GET: CategoriesController/Details/5
-        public ActionResult Details(int id)
+        [HttpGet]
+        public ActionResult Accessories()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult HomeAndGarden()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Auto()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Technologies()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Office()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Sport()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Services()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Others()
         {
             return View();
         }
 
-        // GET: CategoriesController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: CategoriesController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: CategoriesController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: CategoriesController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: CategoriesController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CategoriesController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
