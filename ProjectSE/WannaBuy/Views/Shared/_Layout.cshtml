@@ -23,25 +23,28 @@
           </button>
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item active submenu dropdown">
+              <li class="nav-item"><a class="nav-link" asp-controller="Home" action="Index">Home</a></li>
+              <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
+
+                  <li class="nav-item"><a class="nav-link" asp-controller="Categories" asp-action="Index">Shop Category</a></li>
                   <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
                   <li class="nav-item"><a class="nav-link" asp-controller="Products" asp-action="Add">Add Application</a></li>
                   <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
                   <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
                   <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
                 </ul>
-							</li>
+			   	</li>
              
 							<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">My Profile</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                    
+                  <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Login">Login</a></li>
+                  <li class="nav-item"><a class="nav-link" asp-controller="Account" asp-action="Register">Register</a></li>
                 </ul>
               </li> 
               </ul>
