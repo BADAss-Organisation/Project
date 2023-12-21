@@ -2460,11 +2460,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin_305\\Desktop\\boris armani\\project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
+      "projectUniqueName": "C:\\Users\\Admin_305\\Desktop\\Izpitvane (3)\\project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
       "projectName": "WannaBuy",
-      "projectPath": "C:\\Users\\Admin_305\\Desktop\\boris armani\\project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
+      "projectPath": "C:\\Users\\Admin_305\\Desktop\\Izpitvane (3)\\project\\Project\\ProjectSE\\WannaBuy\\WannaBuy.csproj",
       "packagesPath": "C:\\Users\\Admin_305\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin_305\\Desktop\\boris armani\\project\\Project\\ProjectSE\\WannaBuy\\obj\\",
+      "outputPath": "C:\\Users\\Admin_305\\Desktop\\Izpitvane (3)\\project\\Project\\ProjectSE\\WannaBuy\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
