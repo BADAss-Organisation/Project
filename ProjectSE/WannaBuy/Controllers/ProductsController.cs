@@ -14,7 +14,7 @@ namespace WannaBuy.Controllers
             this.applicationDbContext = dbContext;
         }
        [HttpGet]
-       public async Task<IActionResult> Add()
+       public IActionResult Add()
         {
             ViewBag.CategoryId = new SelectList(applicationDbContext.Categories, "Id", "Name");
             return View();
@@ -34,6 +34,12 @@ namespace WannaBuy.Controllers
             await applicationDbContext.AddAsync(product);
             await applicationDbContext.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult EachProduct (int id)
+        {
+            return View("EachProductView");
         }
     }
 }
