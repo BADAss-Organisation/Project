@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WannaBuy.Data;
 using WannaBuy.Models.Entities;
@@ -6,6 +7,7 @@ using WannaBuy.ViewModels.Application;
 
 namespace WannaBuy.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext applicationDbContext;
@@ -33,7 +35,7 @@ namespace WannaBuy.Controllers
             };
             await applicationDbContext.AddAsync(product);
             await applicationDbContext.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Categories");
         }
 
         [HttpGet]
