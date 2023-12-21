@@ -15,7 +15,7 @@ namespace WannaBuy.Controllers
             this.signInManager = signInManager;
         }
         [HttpGet]
-        public async Task<IActionResult> Register()
+        public IActionResult Register()
         {
             var viewModel = new RegisterViewModel();
             return View(viewModel);
@@ -52,7 +52,7 @@ namespace WannaBuy.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Login(string? returnUrl = null)
+        public IActionResult Login(string? returnUrl = null)
         {
             var viewModel = new LoginViewModel()
             {
