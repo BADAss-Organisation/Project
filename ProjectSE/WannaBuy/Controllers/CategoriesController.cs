@@ -1,54 +1,70 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using WannaBuy.Data;
 
 namespace WannaBuy.Controllers
 {
     public class CategoriesController : Controller
     {
+        private readonly ApplicationDbContext context;
+        public CategoriesController(ApplicationDbContext _context)
+        {
+            this.context = _context;
+        }
+
         [HttpGet]
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
         [HttpGet]
-        public ActionResult Accessories()
+        public async Task<IActionResult> Accessories()
         {
-            return View();
+            var acc = await context.Products.Where(x=>x.Category.Name == "Accessories").ToListAsync(); 
+            return View(acc);
         }
         [HttpGet]
-        public ActionResult HomeAndGarden()
+        public async Task<IActionResult> HomeAndGarden()
         {
-            return View();
+            var hag = await context.Products.Where(x => x.Category.Name == "HomeAndGarden").ToListAsync();
+            return View(hag);
         }
         [HttpGet]
-        public ActionResult Auto()
+        public async Task<IActionResult> Auto()
         {
-            return View();
+            var auto = await context.Products.Where(x => x.Category.Name == "Auto").ToListAsync();
+            return View(auto);
         }
         [HttpGet]
-        public ActionResult Technologies()
+        public async Task<IActionResult> Technologies()
         {
-            return View();
+            var tech = await context.Products.Where(x => x.Category.Name == "Technologies").ToListAsync();
+            return View(tech);
         }
         [HttpGet]
-        public ActionResult Office()
+        public async Task<IActionResult> Office()
         {
-            return View();
+            var off = await context.Products.Where(x => x.Category.Name == "OfficeAndWork").ToListAsync();
+            return View(off);
         }
         [HttpGet]
-        public ActionResult Sport()
+        public async Task<IActionResult> Sport()
         {
-            return View();
+            var sah = await context.Products.Where(x => x.Category.Name == "SportAndHobby").ToListAsync();
+            return View(sah);
         }
         [HttpGet]
-        public ActionResult Services()
+        public async Task<IActionResult> Services()
         {
-            return View();
+            var ser = await context.Products.Where(x => x.Category.Name == "Services").ToListAsync();
+            return View(ser);
         }
         [HttpGet]
-        public ActionResult Others()
+        public async Task<IActionResult> Others()
         {
-            return View();
+            var oth = await context.Products.Where(x => x.Category.Name == "Others").ToListAsync();
+            return View(oth);
         }
 
     }
