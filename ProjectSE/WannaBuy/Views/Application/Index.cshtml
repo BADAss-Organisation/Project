@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using WannaBuy.ViewModels.Product;
+@model BuyProductViewModel
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -132,7 +134,8 @@
 									class="reduced items-count" type="button">
 								<i class="ti-angle-right"></i>
 							</button>
-							<a class="button primary-btn" href="#">Add to Cart</a>
+							<a asp-controller="Products" asp-action="Buy" asp-route-id="@Model.Id"
+							   class="btn btn-danger">Buy Now</a>
 						</div>
 						<div class="card_area d-flex align-items-center">
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
