@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using WannaBuy.Data;
 using WannaBuy.Models.Entities;
 using WannaBuy.ViewModels.Application;
@@ -15,14 +16,14 @@ namespace WannaBuy.Controllers
         {
             this.applicationDbContext = dbContext;
         }
-       [HttpGet]
-       public IActionResult Add()
+        [HttpGet]
+        public async Task<IActionResult> Add()
         {
             ViewBag.CategoryId = new SelectList(applicationDbContext.Categories, "Id", "Name");
             return View();
         }
 
-        [HttpPost]  
+        [HttpPost]
         public async Task<IActionResult> Add(AddApplicationViewModel model)
         {
             var product = new Product()
@@ -39,9 +40,21 @@ namespace WannaBuy.Controllers
         }
 
         [HttpGet]
-        public IActionResult EachProduct (int id)
+        public async Task<IActionResult> EachProduct(Guid id)
         {
-            return View("EachProductView");
+
+            var product = await applicationDbContext.Products.FindAsync(id);
+            if (product != null)
+            {
+                return View("EachProductView");
+            }
+           return View("Index","Categories");
+
         }
+
+
+
+
+
     }
 }
