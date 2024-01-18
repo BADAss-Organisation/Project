@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using WannaBuy.Data;
 using WannaBuy.Models.Entities;
 using WannaBuy.ViewModels.Application;
+using WannaBuy.ViewModels.Product;
 
 namespace WannaBuy.Controllers
 {
@@ -42,6 +43,30 @@ namespace WannaBuy.Controllers
         public IActionResult EachProduct (int id)
         {
             return View("EachProductView");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Buy(int id)
+        {
+            var product = applicationDbContext.Products.FirstOrDefault(x => x.Id == id);
+            if (product != null)
+            {
+                return await Task.Run(() => View("Order", product));
+            }
+            return RedirectToAction("Confirmation", "Order");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Buy(BuyProductViewModel viewModel)
+        {
+            var product = await applicationDbContext.Products.FindAsync(viewModel.Id);
+            if (product != null)
+            {
+                applicationDbContext.Products.Remove(product);
+
+                await applicationDbContext.SaveChangesAsync();
+                return RedirectToAction("Confirmation", "Order");
+            }
+            return RedirectToAction("Confirmation", "Order");
         }
     }
 }
