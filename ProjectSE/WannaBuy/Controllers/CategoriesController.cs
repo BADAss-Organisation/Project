@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WannaBuy.Data;
+using WannaBuy.Models.Entities;
+using WannaBuy.ViewModels.Category;
 
 namespace WannaBuy.Controllers
 {
@@ -65,6 +67,23 @@ namespace WannaBuy.Controllers
         {
             var oth = await context.Products.Where(x => x.Category.Name == "Others").ToListAsync();
             return View(oth);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Add()
+        {
+            return View();  
+        }
+        [HttpPost]
+        public async Task<IActionResult> Add(AddCategoryViewModel model)
+        {
+            var category = new Category()
+            {
+                Name = model.Name,
+                Id=model.Id,    
+            };
+            await context.AddAsync(category);
+            await context.SaveChangesAsync();
+            return RedirectToAction("Index");   
         }
 
     }
