@@ -14,7 +14,6 @@ namespace WannaBuy.Data
         }
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
 
@@ -27,13 +26,21 @@ namespace WannaBuy.Data
                 .WithOne(x => x.Category)
                 .HasForeignKey(x => x.CategoryId);
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<ApplicationUser>()
                 .HasMany(x => x.Products)
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId);
 
-            modelBuilder.Entity<User>()
-                .HasMany(x => x.Orders)
+            modelBuilder.Entity<UserOrders>()
+                .HasKey(x => new {x.OrderId, x.UserId});
+
+            modelBuilder.Entity<Order>()
+                .HasMany(x => x.UserOrders)
+                .WithOne(x => x.Order)
+                .HasForeignKey(x => x.OrderId);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(x => x.UserOrders)
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId);
         }
