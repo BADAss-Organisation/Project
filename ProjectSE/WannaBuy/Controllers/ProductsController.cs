@@ -41,6 +41,12 @@ namespace WannaBuy.Controllers
         }
 
         [HttpGet]
+
+        public async Task<IActionResult> EachProduct (Guid id)
+        {
+            var product = await applicationDbContext.Products.FindAsync(id);
+            return View("EachProductView", product);
+
         public async Task<IActionResult> EachProduct(Guid id)
         {
 
@@ -51,10 +57,11 @@ namespace WannaBuy.Controllers
             }
            return View("Index","Categories");
 
+
         }
 
         [HttpGet]
-        public async Task<IActionResult> Buy(int id)
+        public async Task<IActionResult> Buy(Guid id)
         {
             var product = applicationDbContext.Products.FirstOrDefault(x => x.Id == id);
             if (product != null)

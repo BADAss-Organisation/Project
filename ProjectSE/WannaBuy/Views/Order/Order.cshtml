@@ -101,13 +101,13 @@
                             <h2>Your Order</h2>
                             <ul class="list">
                                 <li><a href="#"><h4>Product <span>Total</span></h4></a></li>
-                                <li><a href="#">@Model.Product.Name <span class="middle">x 1</span> <span class="last">@Model.Product.Price</span></a></li>
+                                @*@<li><a href="#">@Model.Product.Name <span class="middle">x 1</span> <span class="last">@Model.Product.Price</span></a></li>
                             </ul>
                             <ul class="list list_2">
                                 <li><a href="#">Subtotal <span>$@Model.Product.Price</span></a></li>
                                 <li><a href="#">Shipping <span>Flat rate: $50.00</span></a></li>
                                 <li><a href="#">Total <span>@Model.Price</span></a></li>
-                            </ul>
+                            </ul>*@
                             <div class="payment_item">
                                 <div class="radion_btn">
                                     <input type="radio" id="f-option5" name="selector">
@@ -137,7 +137,7 @@
                                 <a href="#">terms & conditions*</a>
                             </div>
                             <div class="text-center">
-                                <a asp-controller="Product" asp-action="Buy" asp-route-id="@Model.Product.Id"
+                                @*<a asp-controller="Product" asp-action="Buy" asp-route-id="@Model.Product.Id"*@
                                    class="btn btn-primary">Proceed</a>
                             </div>
                         </div>

@@ -16,9 +16,10 @@ namespace WannaBuy.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var products = await context.Products.ToListAsync();
+            return View(products);
         }
         [HttpGet]
         public async Task<IActionResult> Accessories()
@@ -78,8 +79,8 @@ namespace WannaBuy.Controllers
         {
             var category = new Category()
             {
+                Id = Guid.NewGuid(),
                 Name = model.Name,
-                Id=model.Id,    
             };
             await context.AddAsync(category);
             await context.SaveChangesAsync();

@@ -100,7 +100,7 @@
           <input class="fname" type="text" name="name" placeholder="Price" asp-for="Price">
           <input type="text" name="name" placeholder="Amount" asp-for="Amount">
           <input type="text" name="name" placeholder="ImageUrl" asp-for="Image">
-          <input type="text" name="name" placeholder="Category" asp-for="CategoryId" asp-items="ViewBag.CategoryId">
+          <select name="name" placeholder="Category" asp-for="CategoryId" asp-items="ViewBag.CategoryId"></select>
           <textarea rows="4" name="name" placeholder="Description" asp-for="Description"></textarea>
         </div>
         <button type="submit" href="/">Submit</button>
