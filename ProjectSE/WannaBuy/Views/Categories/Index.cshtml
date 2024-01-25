@@ -37,8 +37,14 @@
                                     <a style="color:gray" asp-controller="Categories" asp-action="Office">Office and Work</a><br />
                                     <a style="color:gray" asp-controller="Categories" asp-action="Sport">Sport and Hobby</a><br />
                                     <a style="color:gray" asp-controller="Categories" asp-action="Services">Services</a><br />
-                                    <a style="color:gray" asp-controller="Categories" asp-action="Others">Others</a>
-                                </ul>
+                                    <a style="color:gray" asp-controller="Categories" asp-action="Others">Others</a><br/>
+ 
+                                    </ul>
+                                    @if (User.Identity.IsAuthenticated && (User.IsInRole("Administrator")))
+                                {
+                                    <button asp-controller="Categories" asp-action="Add" class="btn btn-primary" >Add Category</button>
+                                }
+                                <button asp-controller="Categories" asp-action="Add" class="btn btn-primary" >Add Category</button>
                             </form>
                         </li>
                     </ul>
